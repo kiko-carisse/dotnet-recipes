@@ -1,0 +1,35 @@
+.delete-book-link {
+    color: red;
+    text-align: right;
+}
+
+.delete-book-link:hover {
+    cursor: pointer;
+}
+
+#book-list-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#book-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.book-list-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.book-list-sub-item {
+    display: inline-block;
+}
+
+.addBookForm {
+    max-width: 300px;
+    margin: 0 auto;
+}
+

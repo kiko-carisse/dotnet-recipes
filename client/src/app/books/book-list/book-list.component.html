@@ -1,0 +1,38 @@
+<div class="container">
+
+    <form class="addBookForm" [formGroup]="addBookForm" (ngSubmit)="addBook()" autocomplete="off">
+
+        <h3>Add Book</h3>
+
+        <app-text-input [formControl]='$any(addBookForm).controls["title"]'
+            [label]='"Title"'></app-text-input>
+
+        <app-text-input [formControl]='$any(addBookForm).controls["author"]'
+            [label]='"Author"'></app-text-input>
+        
+        <button [disabled]="!addBookForm.valid" class="btn btn-success" type="submit">Add Book</button>
+
+        <p>Form Value: {{addBookForm.value | json}}</p>
+        <p>Form Status: {{addBookForm.status | json}}</p>
+    </form>
+
+
+    <div id="book-list-wrapper">
+        <h3>All Books</h3>
+        <ul id="book-list" *ngIf="(books) != null">
+            <li class="book-list-item" *ngFor="let book of books">
+                <a class="book-list-sub-item" routerLink='/books/{{book.id}}'>
+                    {{book.title}}
+                </a>
+                <span>
+                    <a class="book-list-sub-item" routerLink='/books/edit/{{book.id}}'>
+                        EDIT &nbsp;
+                     </a>
+                     <span class="delete-book-link book-list-sub-item" (click)=deleteBook(book.id)>DELETE</span>
+                </span>
+                
+            </li>
+        </ul>
+    </div>
+
+</div><!--.container-->

@@ -1,0 +1,29 @@
+#logo {
+    float: left;
+}
+
+#topNav ul {
+    float: right;
+}
+
+#topNav ul li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#topNav ul li a {
+    padding: 8px 12px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+}
+
+#topNav ul li a:hover {
+    background: rgb(95, 95, 95);
+}
+
+#topNav::after {
+    content: ' ';
+    display: table;
+    clear: both;
+}

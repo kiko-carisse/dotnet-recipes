@@ -1,0 +1,25 @@
+<div class="container">
+    <a *ngIf="(book) != null" routerLink="/books/{{book.id}}">
+        &lt;-        
+        {{updateBookForm.value.title}}
+        {{updateBookForm.value.author}}
+    </a>
+
+    <form *ngIf="book" class="updateBookForm" [formGroup]="updateBookForm" (ngSubmit)="updateBook()" autocomplete="off">
+
+        <h3>Update Book</h3>
+
+        <app-text-input [formControl]='$any(updateBookForm).controls["id"]'
+            [label]='"Id"' [type]='"hidden"'></app-text-input>
+
+        <app-text-input [formControl]='$any(updateBookForm).controls["title"]'
+            [label]='"Title"'></app-text-input>
+
+        <app-text-input [formControl]='$any(updateBookForm).controls["author"]'
+            [label]='"Author"'></app-text-input>
+        
+        <button [disabled]="!updateBookForm.dirty || !updateBookForm.valid" class="btn btn-success" type="submit">Update Book</button>
+
+        <p>Form Status: {{updateBookForm.status | json}}</p>
+    </form>
+</div>
